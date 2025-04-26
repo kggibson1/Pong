@@ -6,7 +6,9 @@
 size = Vector2(27.6516, 120.967)
 
 [node name="Player" type="CharacterBody2D"]
+position = Vector2(150, 309)
 scale = Vector2(1.12109, 1.06641)
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_3qydi")
