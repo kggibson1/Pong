@@ -1,22 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://blfyq8tab8t7i"]
+[gd_scene load_steps=4 format=3 uid="uid://blfyq8tab8t7i"]
 
 [ext_resource type="PackedScene" uid="uid://bvniqxdxb4khy" path="res://Player/Player.tscn" id="1_o6mkr"]
+[ext_resource type="PackedScene" uid="uid://bwnatx7iawwt4" path="res://Opponent/opponent.tscn" id="2_qmtf6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o6mkr"]
-size = Vector2(1080, 20)
+size = Vector2(1280, 20)
 
 [node name="Level" type="Node"]
 
 [node name="Player" parent="." instance=ExtResource("1_o6mkr")]
+position = Vector2(64, 342)
 
 [node name="TopWall" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TopWall"]
-position = Vector2(540, -10)
+position = Vector2(640, -10)
 shape = SubResource("RectangleShape2D_o6mkr")
 
 [node name="BottomWall" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BottomWall"]
-position = Vector2(540, 730)
+position = Vector2(640, 730)
 shape = SubResource("RectangleShape2D_o6mkr")
+
+[node name="Opponent" parent="." instance=ExtResource("2_qmtf6")]
+position = Vector2(1229, 333)
