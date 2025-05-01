@@ -3,14 +3,20 @@
 [ext_resource type="PackedScene" uid="uid://bvniqxdxb4khy" path="res://Player/Player.tscn" id="1_o6mkr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o6mkr"]
-size = Vector2(720, 20)
+size = Vector2(1080, 20)
 
 [node name="Level" type="Node"]
 
 [node name="Player" parent="." instance=ExtResource("1_o6mkr")]
 
-[node name="GameBorder" type="StaticBody2D" parent="."]
+[node name="TopWall" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GameBorder"]
-position = Vector2(360, -10)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopWall"]
+position = Vector2(540, -10)
+shape = SubResource("RectangleShape2D_o6mkr")
+
+[node name="BottomWall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomWall"]
+position = Vector2(540, 730)
 shape = SubResource("RectangleShape2D_o6mkr")
