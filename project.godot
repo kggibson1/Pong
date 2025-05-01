@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Pong"
+run/main_scene="uid://blfyq8tab8t7i"
 config/features=PackedStringArray("4.4", "Forward Plus")
 
 [display]
