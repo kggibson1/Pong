@@ -10,10 +10,15 @@ func _ready():
 	randomize()
 	
 	# randomising the velocity of the ball
-	velocity.x = [-1,1][randi() % 2]*speed # give a random number between -1 and 1, [randi() % 2] generates random number between 0 and 1, randi() generates int over infinite range, % 2 limits this to 0 and 1
+	velocity.x = [-1,1][randi() % 2] # give a random number between -1 and 1, [randi() % 2] generates random number between 0 and 1, randi() generates int over infinite range, % 2 limits this to 0 and 1
 	
 	# make ball move faster in the horizontal direction than the vertical direction
-	velocity.y = [-0.8, 0.8][randi() % 2]*speed
+	velocity.y = [-0.8, 0.8][randi() % 2]
 
 func _physics_process(delta):
-	move_and_slide()
+	# update the balls position each from, 
+	var collision_object = move_and_collide(velocity*speed*delta)
+	
+	# if a collision has occured
+	if collision_object:
+		velocity = velocity.bounce(collision_object.get_normal())
