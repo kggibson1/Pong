@@ -12,8 +12,20 @@ func _ready():
 func _physics_process(delta):
 	move_and_slide()
 	
-## Function needs to be called to be used as doesnt have _	
+## Function needs to be called to be used as doesnt have _
+## Logic: Opponent will only adjust position is the ball is close to it, 
+## if the ball is sufficiently close the script checks if the ball is above or below the opponent
+## if above then the opponent adjusts its y position up, if below then it adjusts the position down
 func get_opponent_direction():
-	pass
+	
+	# first check if the ball is close enough to the opponent
+	if abs(ball.position.y - position.y) > 25:
+		
+		# check if ball is below opponent
+		if ball.position > position.y: return 1
+		
+		# check if ball is above opponent
+		if ball.positon < position.y: return -1
+		
 	
 	
