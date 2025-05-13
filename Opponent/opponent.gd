@@ -25,7 +25,7 @@ func get_opponent_direction():
 		if ball.position > position.y: return 1
 		
 		# check if ball is above opponent
-		if ball.positon < position.y: return -1
+		else: return -1
 		
 	
 	
