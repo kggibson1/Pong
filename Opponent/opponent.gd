@@ -7,10 +7,14 @@ func _ready():
 	# when the ball scene is ready, it looks for its parent (level node)
 	
 	# when the level scene is ready, find the parent scene of opponent, and find a node within it called 'Ball'
-	ball = get_parent().find_node('Ball') # essentially gives access to all of the balls attributes?
+	ball = get_parent().get_node('Ball') # essentially gives access to all of the balls attributes?
 	
 func _physics_process(delta):
-	move_and_collide(Vector2(0, get_opponent_direction())*speed)
+	#move_and_collide(Vector2(0, get_opponent_direction())*speed)
+	
+	var direction = Vector2(0, get_opponent_direction()) * speed
+	
+	move_and_collide(direction*delta)
 	
 ## Function needs to be called to be used as doesnt have _
 ## Logic: Opponent will only adjust position is the ball is close to it, 
@@ -24,7 +28,7 @@ func get_opponent_direction():
 	if abs(ball.position.y - position.y) > 25:
 		
 		# check if ball is below opponent
-		if ball.position > position.y: return 1
+		if ball.position.y > position.y: return 1
 		
 		# check if ball is above opponent
 		else: return -1
