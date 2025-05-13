@@ -60,3 +60,4 @@ position = Vector2(10.5, 359)
 shape = SubResource("RectangleShape2D_uawph")
 
 [connection signal="body_entered" from="LeftWall" to="." method="_on_left_wall_body_entered"]
+[connection signal="body_entered" from="RightWall" to="." method="_on_right_wall_body_entered"]

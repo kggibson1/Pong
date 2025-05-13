@@ -25,7 +25,7 @@ func _physics_process(delta):
 func get_opponent_direction():
 	
 	# first check if the ball is close enough to the opponent
-	if abs(ball.position.y - position.y) > 25:
+	if abs(ball.position.y - position.y) > 10:
 		
 		# check if ball is below opponent
 		if ball.position.y > position.y: return 1
