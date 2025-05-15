@@ -13,7 +13,7 @@ func _ready():
 	velocity.x = [-1,1][randi() % 2] # give a random number between -1 and 1, [randi() % 2] generates random number between 0 and 1, randi() generates int over infinite range, % 2 limits this to 0 and 1
 	
 	# make ball move faster in the horizontal direction than the vertical direction
-	velocity.y = [-0.8, 0.8][randi() % 2]
+	velocity.y = [-0.9, 0.9][randi() % 2]
 
 func _physics_process(delta):
 	# update the balls position each from, 

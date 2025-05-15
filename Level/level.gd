@@ -1,7 +1,15 @@
 extends Node
 
+# keep track of score
+var player_score = 0
+var opponent_score = 0
+
 ## signal to trigger if a body enters the left node (Area2D physics node)
 func _on_left_wall_body_entered(body: Node2D):
+	
+		# opponent gets +1 score
+	opponent_score += 1
+	
 	#print('Collision_test')
 	
 	# get the screen and its size
@@ -16,6 +24,10 @@ func _on_left_wall_body_entered(body: Node2D):
 
 
 func _on_right_wall_body_entered(body: Node2D):
+	
+	# player gets +1 score
+	player_score += 1
+	
 		# get the screen and its size
 	var screensize = get_viewport().size
 	
@@ -25,3 +37,9 @@ func _on_right_wall_body_entered(body: Node2D):
 	
 	# $Ball only targets the ball
 	$Ball.position = Vector2(screen_center_x, screen_center_y)
+	
+
+func _process(delta):
+	$PlayerScore.text = str(player_score)
+	$OpponentScore.text = str(opponent_score)
+	
