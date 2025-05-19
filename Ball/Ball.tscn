@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_ov5dl"]
 radius = 16.0
 
-[node name="Ball" type="CharacterBody2D"]
+[node name="Ball" type="CharacterBody2D" groups=["BallGroup"]]
 script = ExtResource("1_ov5dl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

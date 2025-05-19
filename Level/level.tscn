@@ -93,5 +93,10 @@ metadata/_edit_group_ = true
 position = Vector2(10.5, 359)
 shape = SubResource("RectangleShape2D_uawph")
 
+[node name="CountDownTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="body_entered" from="LeftWall" to="." method="_on_left_wall_body_entered"]
 [connection signal="body_entered" from="RightWall" to="." method="_on_right_wall_body_entered"]
+[connection signal="timeout" from="CountDownTimer" to="." method="_on_count_down_timer_timeout"]
