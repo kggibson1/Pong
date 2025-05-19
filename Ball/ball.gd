@@ -27,3 +27,16 @@ func _physics_process(delta):
 ## stops the ball
 func stop_ball():
 	speed = 0
+	
+
+## reset the balls velocity
+func start_ball():
+	
+	# set speed
+	speed = 600
+	
+	# randomising the velocity of the ball
+	velocity.x = [-1,1][randi() % 2] # give a random number between -1 and 1, [randi() % 2] generates random number between 0 and 1, randi() generates int over infinite range, % 2 limits this to 0 and 1
+	
+	# make ball move faster in the horizontal direction than the vertical direction
+	velocity.y = [-0.9, 0.9][randi() % 2]
