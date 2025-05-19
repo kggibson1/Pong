@@ -22,6 +22,7 @@ func _physics_process(delta):
 	# if a collision has occured
 	if collision_object:
 		velocity = velocity.bounce(collision_object.get_normal())
+		$CollisionSound.play()
 		
 
 ## stops the ball
