@@ -13,4 +13,5 @@ script = ExtResource("1_ov5dl")
 texture = ExtResource("1_cfgdn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_ov5dl")

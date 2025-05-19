@@ -54,7 +54,10 @@ func _process(delta):
 	$PlayerScore.text = str(player_score)
 	$OpponentScore.text = str(opponent_score)
 	
+	# set text of countdown timer
+	$CountDownLabel.text = str(int($CountDownTimer.time_left) + 1)
 
+	
 ## signal for when timer runs out (reaches 0), countdown for game to start btw
 func _on_count_down_timer_timeout():
 	# want to tell ball not to move until this has triggered after a level reset
