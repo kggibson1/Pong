@@ -25,8 +25,12 @@ func _on_left_wall_body_entered(body: Node2D):
 	# set ball velocity to zero from the ball node
 	get_tree().call_group('BallGroup', 'stop_ball')
 	
-	# start countdown timer
+	# play score sound
+	$ScoreSound.play()
+	
+	# start countdown timer 
 	$CountDownTimer.start()
+	$CountDownLabel.visible = true # show on screen
 
 
 func _on_right_wall_body_entered(body: Node2D):
@@ -47,8 +51,12 @@ func _on_right_wall_body_entered(body: Node2D):
 	# set ball velocity to zero from the ball node
 	get_tree().call_group('BallGroup', 'stop_ball') # group we are calling and the method within the group
 	
+	# play score sound
+	$ScoreSound.play()
+	
 	# start countdown timer
 	$CountDownTimer.start()
+	$CountDownLabel.visible = true # show timer on screen 
 
 func _process(delta):
 	$PlayerScore.text = str(player_score)
@@ -64,3 +72,6 @@ func _on_count_down_timer_timeout():
 	
 	# reset balls velocity
 	get_tree().call_group('BallGroup', 'start_ball')
+	
+	# hide count down timer when timer has run out
+	$CountDownLabel.visible = false
